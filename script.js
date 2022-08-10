@@ -14,3 +14,12 @@ function getComputerChoice()
 }
 //invoke function
 getComputerChoice();
+
+//connecting buttons from html
+const userRock = document.getElementById("userRock");
+
+window.onload=function(){
+userRock.addEventListener('click', () =>{
+    alert('Rock Picked');
+});
+};
