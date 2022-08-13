@@ -3,15 +3,19 @@
 
 //first define an array of variable
 const randomItems = ["Rock", "Paper", "Scissors"];
+//create object for numbers of scores
+let roundNo = 0;
+let userScore = 0;
+let pcScore = 0;
 
 //created an object that has all values needed for game.
 let roundResult = {
     pcPick: 'no', 
     userPick: 'no', 
     winner: 'no', 
-    userScore: 'no', 
-    pcScore: 'no', 
-    roundNo: 'no'}
+    userScore: userScore, 
+    pcScore: pcScore, 
+    roundNo: roundNo}
 
 //randomly choose element from an array of variables
 function getComputerChoice()
@@ -20,8 +24,7 @@ function getComputerChoice()
    roundResult.pcPick = randomOne
    //return console.log(randomOne)
 }
-//invoke function. No need to invoke it from here
-//getComputerChoice();
+
 
 //variable that stands for user Pick
 
@@ -68,7 +71,34 @@ else if (roundResult.pcPick == "Scissors" && roundResult.userPick == "Paper")
     roundResult.winner = "PC";
 /////Else
 else
-console.log("you've made an error");
+console.log("weapon pick error");
 
 console.log("winner is: "+ roundResult.winner )
 }
+//set +1 counter for each value
+
+function winnerCount()
+{
+if (roundResult.winner == "User") {
+    roundResult.userScore = userScore+=1
+    roundResult.roundNo = roundNo+=1;
+}
+else if (roundResult.winner == "PC") {
+    roundResult.pcScore = pcScore+=1
+    roundResult.roundNo = roundNo+=1;
+}
+else if (roundResult.winner == "Tie") {
+    roundResult.roundNo = roundNo+=1;
+}
+
+else
+console.log("counter error");
+
+
+}
+
+
+//create game fucntion that will initiate Game itself?? 
+//Maybe set all other functions inside this one 
+//to invoke from button with one simple fucntion
+
