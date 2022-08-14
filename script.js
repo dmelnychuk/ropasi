@@ -15,7 +15,9 @@ let roundResult = {
     winner: 'no', 
     userScore: userScore, 
     pcScore: pcScore, 
-    roundNo: roundNo}
+    roundNo: roundNo,
+    ultimateWinner: 'no',
+}
 
 //randomly choose element from an array of variables
 function getComputerChoice()
@@ -109,10 +111,74 @@ function addDisplay(){
     const machineScore = document.getElementById('machineScore')
     machineScore.innerHTML = "PC Score: " + roundResult.pcScore;
 
+    const userPickStr = document.getElementById('userPickStr')
+    userPickStr.innerHTML = "Users pick: " + roundResult.userPick;
+
+    const pcPickStr = document.getElementById('pcPickStr')
+    pcPickStr.innerHTML = "Computers pick: " + roundResult.pcPick;
+
+}
+
+//fucntion to invoke all fucntions
+function playGame(){
+
+getComputerChoice(); 
+judge(); 
+winnerCount();
+addDisplay();
+pickuWinner();
+}
+
+//fucntion to pick ultimate winner
+
+function pickuWinner(){
+    if (roundNo >= 5 && roundResult.pcScore !== roundResult.userScore && roundResult.userScore > roundResult.pcScore){
+        roundResult.ultimateWinner = "User! Congratulations 🎉🎉🎉!"
+    const pickWinner = document.getElementById('pickWinner')
+    pickWinner.innerHTML = "Ultimate Winner is: " + roundResult.ultimateWinner;
+    setStartover();
+    btnclick();
+    disableWeapon();
+    }
+    else if (roundNo >= 5 && roundResult.pcScore !== roundResult.userScore && roundResult.userScore < roundResult.pcScore){
+        roundResult.ultimateWinner = "Computer. Try again later"
+    const pickWinner = document.getElementById('pickWinner')
+    pickWinner.innerHTML = "Ultimate Winner is: " + roundResult.ultimateWinner;
+    setStartover();
+    btnclick();
+    disableWeapon();
+    }
+    else 
+    console.log("no ultimate winner yet")
 }
 
 
-//create game fucntion that will initiate Game itself?? 
-//Maybe set all other functions inside this one 
-//to invoke from button with one simple fucntion
+//startover function
 
+let btn
+
+function setStartover(){
+btn = document.createElement('button')
+btn.innerText = "I'm ready to try again!";
+btn.style.cssText = 'color:red;background-color:yellow';
+btn.style.position = "absolute";
+btn.style.left = "50%";
+btn.style.transform = "translateX(-50%)";
+btn.id = "startover"
+document.body.appendChild(btn);
+}
+
+function btnclick(){
+let btn1 = document.getElementById("startover")
+btn1.onclick = function(){
+    console.log("clicked");
+    location.reload();
+}
+};
+
+
+function disableWeapon(){
+    document.getElementById("Rock").disabled = true;
+    document.getElementById("Paper").disabled = true;
+    document.getElementById("Scissors").disabled = true;
+};

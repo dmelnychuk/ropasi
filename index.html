@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8">
     <title>ROPASI</title>
+    <style>
+      h1 {text-align: center;}
+      p {text-align: center;}
+      div {text-align: center;}
+      button {text-align: center;}
+      </style>
 
   </head>
 
@@ -10,22 +16,29 @@
     <h1>Rock Paper Scissors</h1>
 <div>
     <h2>Pick your Weapon!</h2>
+    <h2>5 Rounds, only one Winner!</h2>
 </div>
 
 <!--Creating buttons for user, added functions inside buttons themselves-->
-
-<button onclick="userRock(); getComputerChoice(); judge(); winnerCount()">🪨</button>
-<button onclick="userPaper();  getComputerChoice(); judge(); winnerCount()">📜</button>
-<button onclick="userScissors(); getComputerChoice(); judge(); winnerCount()">✂️</button>
-
 <div>
+<button id="Rock"; style ="font-size: 54px"; onclick="userRock(); playGame()">🪨</button>
+<button id="Paper"; style ="font-size: 54px"; onclick="userPaper();  playGame()">📜</button>
+<button id="Scissors"; style ="font-size: 54px"; onclick="userScissors(); playGame()">✂️</button>
+</div>
+
+<div> 
+
 </div>
 <!--Creating div elements for score to reference them from js-->
 
 <div id="roundNumber"></div>
+<div id="userPickStr"></div>
+<div id="pcPickStr"></div>
 <div id="roundWinner"></div>
 <div id="userScore"></div>
 <div id="machineScore"></div>
+<div id="pickWinner"></div>
+<div id="btnInv"></div>
 
 <script type="text/javascript" src="script.js"> </script>
 
