@@ -135,6 +135,7 @@ function pickuWinner(){
     if (roundNo >= 5 && roundResult.pcScore !== roundResult.userScore && roundResult.userScore > roundResult.pcScore){
         roundResult.ultimateWinner = "User! Congratulations 🎉🎉🎉!"
     const pickWinner = document.getElementById('pickWinner')
+    pickWinner.style.fontSize = "35px";
     pickWinner.innerHTML = "Ultimate Winner is: " + roundResult.ultimateWinner;
     setStartover();
     btnclick();
@@ -143,6 +144,7 @@ function pickuWinner(){
     else if (roundNo >= 5 && roundResult.pcScore !== roundResult.userScore && roundResult.userScore < roundResult.pcScore){
         roundResult.ultimateWinner = "Computer. Try again later"
     const pickWinner = document.getElementById('pickWinner')
+    pickWinner.style.fontSize = "35px";
     pickWinner.innerHTML = "Ultimate Winner is: " + roundResult.ultimateWinner;
     setStartover();
     btnclick();
@@ -164,6 +166,7 @@ btn.style.cssText = 'color:red;background-color:yellow';
 btn.style.position = "absolute";
 btn.style.left = "50%";
 btn.style.transform = "translateX(-50%)";
+btn.style.fontSize = "40px";
 btn.id = "startover"
 document.body.appendChild(btn);
 }
