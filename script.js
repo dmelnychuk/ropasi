@@ -93,7 +93,21 @@ else if (roundResult.winner == "Tie") {
 
 else
 console.log("counter error");
+}
 
+///create a function that will display score and other things in html
+function addDisplay(){
+    const userScore = document.getElementById("userScore");
+    userScore.innerHTML = "User Score: " + roundResult.userScore;
+
+    const roundNumber = document.getElementById("roundNumber")
+    roundNumber.innerHTML = "Round No: " + roundResult.roundNo;
+
+    const roundWinner = document.getElementById('roundWinner')
+    roundWinner.innerHTML = "Round Winner: " + roundResult.winner;
+
+    const machineScore = document.getElementById('machineScore')
+    machineScore.innerHTML = "PC Score: " + roundResult.pcScore;
 
 }
 
